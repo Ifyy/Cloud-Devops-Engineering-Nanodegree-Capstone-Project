@@ -36,7 +36,7 @@ pipeline {
             }
             steps {
                 sh 'kubectl version'
-                sh 'kubectl apply -f kube/deployment.yaml'
+                sh 'kubectl apply -f kubernetes-deployment/deployment.yaml'
             }
         }
     }

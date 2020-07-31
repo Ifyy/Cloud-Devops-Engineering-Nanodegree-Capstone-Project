@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capstone
+  labels:
+    app: capstone
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: capstone
+  template:
+    metadata:
+      labels:
+        app: capstone
+    spec:
+      containers:
+        - name: capstone
+          image: ifeomau/cloud_devops_capstone_project
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "250m"

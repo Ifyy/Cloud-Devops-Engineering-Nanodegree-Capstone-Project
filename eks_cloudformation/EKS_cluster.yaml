@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Amazon EKS Cluster"
+
+Resources:
+  cdnCapstone:
+    Type: "AWS::EKS::Cluster"
+    Properties:
+      Name: cdnCapstone
+      Version: "1.17"
+      RoleArn: arn:aws:iam::434966034077:role/EksClusterRole-eksClusterRole-QJZMZTTJDGXN
+      ResourcesVpcConfig:
+        SecurityGroupIds:
+          - sg-0fedc440ef10b0532
+        SubnetIds:
+          - subnet-093d098ba1b9fca75
+          - subnet-0e5737c54597e96bd
+          - subnet-043c525222259b345
+          - subnet-09807f825bf967207
+
+Outputs:
+  clusterName:
+    Description: The EKS cluster name
+    Value: !Ref cdnCapstone
+    Export:
+      Name: ClusterName

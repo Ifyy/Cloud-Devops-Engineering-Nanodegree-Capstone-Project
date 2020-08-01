@@ -35,8 +35,10 @@ pipeline {
                 branch 'master'
             }
             steps {
+                withAWS(credentials:'aws-credential'){
                 sh 'kubectl version'
                 sh 'kubectl apply -f kubernetes-deployment/deployment.yaml'
+                }
             }
         }
     }
